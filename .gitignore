@@ -227,3 +227,6 @@ tags
 [._]*.un~
 
 # End of https://www.gitignore.io/api/vim,pycharm+all,jupyternotebooks
+
+# input.txt in the learning_stuff folder
+learning_stuff/input.txt
