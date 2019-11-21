@@ -230,3 +230,7 @@ tags
 
 # input.txt in the learning_stuff folder
 learning_stuff/input.txt
+
+# all the datasets/
+datasets/
+
