@@ -16,7 +16,8 @@ class VocabCreate(object):
         """Constructor
         """
         if os.path.exists(output_path):
-            self.one_hot_inds = np.load(output_path)
+            loaded_data = np.load(output_path, allow_pickle=True)
+            self.one_hot_inds = loaded_data.item()
             return
 
         # the path to the json file containing the annotations
@@ -41,7 +42,7 @@ class VocabCreate(object):
         self.create_inds()
 
         # Creates a list of tuples
-        self.one_hot_inds = np.array(list(self.one_hot_inds.items()))
+        # self.one_hot_inds = np.array(list(self.one_hot_inds.items()))
         np.save(output_path, self.one_hot_inds)
         # print(set(vals), len(vals))
 
@@ -55,12 +56,12 @@ class VocabCreate(object):
         cap_ids = self.data.anns.keys()
         for id in cap_ids:
             cap = str(self.data.anns[id]["caption"])
-            clean_cap = re.sub(r'[^a-zA-Z0-9-\' ]+', '', cap)
+            clean_cap = re.sub(r'[^a-zA-Z0-9 ]+', '', cap)
             word_list = clean_cap.lower().strip().split()
             self.vocab_list.update(word_list)
 
     def __len__(self):
-        return len(self.dict)
+        return len(self.one_hot_inds)
 
     def remove_lowest(self, thresh):
         """
