@@ -30,7 +30,7 @@ class VocabCreate(object):
         self.max_cap_len = 0
 
         # dict contains the final word list with words of frequency >= threshold
-        self.dict = None
+        self.dict = list()
 
         # One hot indices required for embedded layer of RNN
         self.one_hot_inds = dict()
@@ -85,11 +85,11 @@ class VocabCreate(object):
         end_vec = "end_vec"
         unknown = "unk_vec"
         pad_vec = "pad_vec"
+        self.dict.insert(0, pad_vec)
         self.dict.append(start_vec)
         self.dict.append(end_vec)
         self.dict.append(unknown)
-        self.dict.append(pad_vec)
-
+        
         # Generate distinct indices for each word in the vocabulary
         for i in range(len(self.dict)):
             self.one_hot_inds[self.dict[i]] = i
