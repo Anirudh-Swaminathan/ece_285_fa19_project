@@ -4,6 +4,7 @@
 from pycocotools.coco import COCO
 from collections import Counter
 import nltk
+import re
 
 
 class VocabCreate(object):
@@ -26,7 +27,12 @@ class VocabCreate(object):
         cap_ids = self.data.anns.keys()
         id = 47
         cap = str(self.data.anns[id]["caption"])
-        word = nltk.tokenize.word_tokenize(cap.lower())
+        print(cap)
+        cap = "Hi! i am her.i am not?"
+        op = re.sub(r'[^a-zA-Z0-9 ]+', '', cap)
+        print(cap)
+        print(op)
+        word = nltk.tokenize.word_tokenize(op.lower())
         print(word)
         """
         for id in cap_ids:
@@ -36,7 +42,7 @@ class VocabCreate(object):
 
 
 def main():
-    vocab = VocabCreate("../../datasets/COCO/annotations/train2014.json")
+    vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json")
     vocab.load_data()
     vocab.list_words()
 
