@@ -55,7 +55,7 @@ class VocabCreate(object):
         cap_ids = self.data.anns.keys()
         for id in cap_ids:
             cap = str(self.data.anns[id]["caption"])
-            clean_cap = re.sub(r'^[a-zA-Z0-9 ]+', '', cap)
+            clean_cap = re.sub(r'[^a-zA-Z0-9-\' ]+', '', cap)
             word_list = clean_cap.lower().strip().split()
             self.vocab_list.update(word_list)
 
