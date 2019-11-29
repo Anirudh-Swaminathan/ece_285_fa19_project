@@ -19,6 +19,9 @@ class VocabCreate(object):
         self.load_data()
         self.frequency_list()
         self.remove_lowest(thresh=5)
+        # print(len(self.vocab_list.keys()))
+        vals = [self.vocab_list[v] for v in self.dict]
+        # print(set(vals), len(vals))
 
     def load_data(self):
         """Function to load the data"""
@@ -42,14 +45,14 @@ class VocabCreate(object):
         Only keeps those words whose frequency is greater than threshold
         :argument thresh minimum frequency to keep in the vocabulary
         """
-        ret = [w for w in self.vocab_list.keys() if self.vocab_list[w] > thresh]
+        ret = [w for w in self.vocab_list.keys() if self.vocab_list[w] >= thresh]
         self.dict = ret
 
 
 def main():
     vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json")
     print("Loaded successfully!")
-    print(len(vocab))
+    print("There are ", len(vocab), " unique words with frequency >=5 in the dataset")
 
 
 if __name__ == "__main__":
