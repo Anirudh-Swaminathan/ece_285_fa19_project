@@ -3,7 +3,6 @@
 # imports go here
 from pycocotools.coco import COCO
 from collections import Counter
-import nltk
 import re
 
 
@@ -15,36 +14,42 @@ class VocabCreate(object):
         """
         self.data_pth = data_pth
         self.data = None
+        self.dict = None
         self.vocab_list = Counter()
+        self.load_data()
+        self.frequency_list()
+        self.remove_lowest(thresh=5)
 
     def load_data(self):
         """Function to load the data"""
         self.data = COCO(self.data_pth)
 
-    def list_words(self):
+    def frequency_list(self):
         """Creates a list of words"""
         # iterate through every caption
         cap_ids = self.data.anns.keys()
-        id = 47
-        cap = str(self.data.anns[id]["caption"])
-        print(cap)
-        cap = "Hi! i am her.i am not?"
-        op = re.sub(r'[^a-zA-Z0-9 ]+', '', cap)
-        print(cap)
-        print(op)
-        word = nltk.tokenize.word_tokenize(op.lower())
-        print(word)
-        """
         for id in cap_ids:
             cap = str(self.data.anns[id]["caption"])
-            self.vocab_list.update(cap.lower())
+            clean_cap = re.sub(r'^[a-zA-Z0-9 ]+', '', cap)
+            word_list = clean_cap.lower().strip().split()
+            self.vocab_list.update(word_list)
+
+    def __len__(self):
+        return len(self.dict)
+
+    def remove_lowest(self, thresh):
         """
+        Only keeps those words whose frequency is greater than threshold
+        :argument thresh minimum frequency to keep in the vocabulary
+        """
+        ret = [w for w in self.vocab_list.keys() if self.vocab_list[w] > thresh]
+        self.dict = ret
 
 
 def main():
     vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json")
-    vocab.load_data()
-    vocab.list_words()
+    print("Loaded successfully!")
+    print(len(vocab))
 
 
 if __name__ == "__main__":
