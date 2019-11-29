@@ -19,14 +19,16 @@ class encoder(nn.Module):
     def __init__(self,output_dim=1000):
         super(encoder, self).__init__()
         gnet = models.googlenet(pretrained=True)
+        for param in gnet.parameters():
+            param.requires_grad=False
         self.gnet = Sequential(*list(gnet.children())[:-1])
         self.linear = nn.Linear(gnet.fc.in_features, output_dim)
-        self.batchnorm = nn.BatchNorm1d(output_size)
-        self.weights()
+        self.batchnorm = nn.BatchNorm1d(output_dim)
+        #self.weights()
     
-    def weights(self):
-        self.linear.weight.data.Xavier_normal_()
-        self.linear.bias.data.fill_(0)
+#     def weights(self):
+#         self.linear.weight.data.xavier_normal_()
+#         self.linear.bias.data.fill_(0)
     
     def forward(self,x):
         x = self.gnet(x)
