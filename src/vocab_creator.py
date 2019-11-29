@@ -26,7 +26,7 @@ class VocabCreate(object):
         # data holds the dictionary corresponding to the JSON file
         self.data = None
 
-        # self.max_cap_len = 0
+        self.max_cap_len = 0
 
         # dict contains the final word list with words of frequency >= threshold
         self.dict = None
