@@ -17,7 +17,8 @@ class VocabCreate(object):
         """
         if os.path.exists(output_path):
             loaded_data = np.load(output_path, allow_pickle=True)
-            self.one_hot_inds = loaded_data.item()
+            self.one_hot_inds = loaded_data["one_hot_indices"].item()
+            self.dict = loaded_data["dictionary"]
             return
 
         # the path to the json file containing the annotations
@@ -45,7 +46,7 @@ class VocabCreate(object):
 
         # Creates a list of tuples
         # self.one_hot_inds = np.array(list(self.one_hot_inds.items()))
-        np.save(output_path, self.one_hot_inds)
+        np.savez(output_path, one_hot_indices=self.one_hot_inds, dictionary=self.dict)
         # print(set(vals), len(vals))
 
     def load_data(self):
@@ -82,8 +83,12 @@ class VocabCreate(object):
         # add start and end vectors to the vocabulary
         start_vec = "start_vec"
         end_vec = "end_vec"
+        unknown = "unk_vec"
+        pad_vec = "pad_vec"
         self.dict.append(start_vec)
         self.dict.append(end_vec)
+        self.dict.append(unknown)
+        self.dict.append(pad_vec)
 
         # Generate distinct indices for each word in the vocabulary
         for i in range(len(self.dict)):
@@ -94,7 +99,7 @@ class VocabCreate(object):
 
 
 def main():
-    vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json", "../outputs/vocab.npy")
+    vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json", "../outputs/vocab.npz")
     print("Loaded successfully!")
     print("There are ", len(vocab), " unique words with frequency >=5 in the dataset")
     # print(vocab.maximum_caption_length())
