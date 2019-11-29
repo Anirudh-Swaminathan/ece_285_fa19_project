@@ -44,6 +44,7 @@ class VocabCreate(object):
         # Creates a list of tuples
         # self.one_hot_inds = np.array(list(self.one_hot_inds.items()))
         np.save(output_path, self.one_hot_inds)
+        self.max_cap_len = 0
         # print(set(vals), len(vals))
 
     def load_data(self):
@@ -58,6 +59,7 @@ class VocabCreate(object):
             cap = str(self.data.anns[id]["caption"])
             clean_cap = re.sub(r'[^a-zA-Z0-9 ]+', '', cap)
             word_list = clean_cap.lower().strip().split()
+            self.max_cap_len = max(self.max_cap_len, len(word_list))
             self.vocab_list.update(word_list)
 
     def __len__(self):
@@ -86,11 +88,15 @@ class VocabCreate(object):
         for i in range(len(self.dict)):
             self.one_hot_inds[self.dict[i]] = i
 
+    def maximum_caption_length(self):
+        return self.max_cap_len
+
 
 def main():
     vocab = VocabCreate("../datasets/COCO/annotations/captions_train2014.json", "../outputs/vocab.npy")
     print("Loaded successfully!")
     print("There are ", len(vocab), " unique words with frequency >=5 in the dataset")
+    print(vocab.maximum_caption_length())
 
 
 if __name__ == "__main__":
