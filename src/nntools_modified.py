@@ -285,12 +285,12 @@ class Experiment(object):
                 loss.backward()
                 self.optimizer.step()
                 with torch.no_grad():
-                    print("Save stuff!")
+                    #print("Save stuff!")
                     self.stats_manager.accumulate(loss.item(), x, y, target)
                     self.history.append(self.stats_manager.summarize())
-                    print(len(self.history))
+                    #print(len(self.history))
                     self.save()
-                    print("Saved!")
+                    #print("Saved!")
                 if plot is not None:
                     plot(self)
 
