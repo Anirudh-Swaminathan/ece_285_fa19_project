@@ -262,8 +262,9 @@ class Experiment(object):
             plot(self)
         for epoch in range(start_epoch, num_epochs):
             s = time.time()
-            self.stats_manager.init()
+            #self.stats_manager.init()
             for batch in range(start_batch, len(self.train_loader)):
+                self.stats_manager.init()
                 x, d, cap_len = next(iter(self.train_loader))
 
                 print('Epoch:',epoch,' Batch:',batch)
