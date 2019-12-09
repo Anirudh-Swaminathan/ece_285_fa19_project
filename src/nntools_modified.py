@@ -315,6 +315,8 @@ class Experiment(object):
                 target = pack_padded_sequence(d,cap_len,batch_first=True)[0]
                 y = self.net.forward(x, d, cap_len)
                 loss = self.net.criterion(y, target)
+                with open(self.output_dir+'val_losses.txt','a') as t_file:
+                    print(loss, file=t_file)
                 self.stats_manager.accumulate(loss.item(), x, y, target)
         self.net.train()
         return self.stats_manager.summarize()

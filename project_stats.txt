@@ -1,0 +1,21 @@
+DSMLP POD
+aswamina-7105 - sgd 0.9 vgg - (Train - 1 epoch - 4.8, BLEU1 - 0.30) - evaluate()
+aswamina-10548 - sgd 0 vgg (evaluate())
+aswamina-14123 - sgd_nesterov vgg (2 epochs, 1557 batches)
+adam vgg (2 epochs - 1900 batches)
+
+COMMANDS
+1.  K8S_TIMEOUT_SECONDS=43200 launch-scipy-ml-gpu.sh -b
+
+2. kubesh <pod_name>
+Connects to the background pod
+
+3. kubectl delete pod <pod_name>
+deletes pod
+
+4. kubectl get pods
+Returns list of running pods
+
+5. kubectl logs <pod-name>
+Retrieved output from our pod
+

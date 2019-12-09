@@ -378,3 +378,6 @@ exp1 = nt.Experiment(net, training_dataset, val_dataset, nest_gd,
 # In[ ]:
 
 exp1.run(num_epochs=5)
+exp1_val = exp1.evaluate()
+with open(op_dir+'val_result.txt','a') as t_file:
+    print(exp1_val, file=t_file)
