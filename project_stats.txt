@@ -1,8 +1,8 @@
 DSMLP POD
-aswamina-7105 - sgd 0.9 vgg - (Train - 1 epoch - 4.8, BLEU1 - 0.30) - evaluate()
-aswamina-10548 - sgd 0 vgg (evaluate())
-aswamina-14123 - sgd_nesterov vgg (2 epochs, 1557 batches)
-adam vgg (2 epochs - 1900 batches)
+DONE - sgd 0.9 vgg
+DONE - sgd 0 vgg
+aswamina-31647 - sgd_nesterov vgg (4 epochs  - 123 batches)
+DONE - adam vgg
 
 COMMANDS
 1.  K8S_TIMEOUT_SECONDS=43200 launch-scipy-ml-gpu.sh -b
