@@ -19,7 +19,7 @@ To work on the dataset, we have used the official repositories provided for COCO
 The first repository that is utilized as a submodule is [cocoapi](https://github.com/cocodataset/cocoapi/tree/636becdc73d54283b3aac6d4ec363cffbb6f9b20). This provides a wrapper to load captions that correspond to images.
 The second repository that is utilized as a submodule is [coco-caption](https://github.com/Anirudh-Swaminathan/coco-caption/tree/c5ffd796caca13de757967317ba364d7d91e3a2f). This provides a wrapper to evaluate our resultant captions by providing implementations of BLEU scores.
 #### NOTE:
-This repository is my fork of the original repository [here](https://github.com/tylin/coco-caption). This has codes reworked in Python3 from the ones originally provided in Python2.
+This repository is my fork of the original repository [here](https://github.com/tylin/coco-caption). This 
 
 ### Dataset Annotations (Captions) Download
 These are the steps to set up the dataset:-
@@ -52,3 +52,7 @@ This can be done by the following
 cd src/
 ln -s ./cocoapi/PythonAPI/pycocotools ./
 ``` 
+
+## Trained Models Loading
+The trained models for the project can be found in this Google Drive [link](https://drive.google.com/drive/folders/1OgL4AOoS6XyzSQr6W_Gu6uV0BVRVWatS?usp=sharing)
+Please download each of the folders and place that folder in the [outputs](./outputs) folder.
