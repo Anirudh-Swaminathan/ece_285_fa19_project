@@ -7,7 +7,7 @@ The project is a collaborative project that was worked on by [Anirudh](https://g
 To work on the project, please use Python 3.
 Install the required packages from [requirements.txt](./requirements.txt)
 ```bash
-pip install --user requirements.txt
+pip install --user -r requirements.txt
 ```
 
 ## Collaboration
