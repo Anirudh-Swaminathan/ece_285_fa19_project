@@ -9,6 +9,7 @@ Install the required packages from [requirements.txt](./requirements.txt)
 ```bash
 pip install --user -r requirements.txt
 ```
+NOTE - These were the packages that were default present in the UCSD DSMLP cluster. They have been uploaded here so as to ensure compatibility for runs.
 
 ## Collaboration
 Contribution guidelines are given [here](./CONTRIBUTING.md)
