@@ -3,6 +3,8 @@ A repository to collaborate on the Course Project for ECE285 course "Machine Lea
 
 The project is a collaborative project that was worked on by [Anirudh](https://github.com/Anirudh-Swaminathan), [Aparna](https://github.com/aparna9625), [Savitha](https://github.com/savitha0602) and [Sidharth](https://github.com/Sidharth2905) from team **Saas**
 
+The final report for our work is [here](./final_report.pdf)
+
 ## Software Requirements
 To work on the project, please use Python 3.
 Install the required packages from [requirements.txt](./requirements.txt)
