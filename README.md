@@ -1,4 +1,4 @@
-# ece_285_fa19_project
+## Image Captioning - Team SaaS
 A repository to collaborate on the Course Project for ECE285 course "Machine Learning for Image Processing" taken at UCSD in the Fall Quarter of 2019
 
 The project is a collaborative project that was worked on by [Anirudh](https://github.com/Anirudh-Swaminathan), [Aparna](https://github.com/aparna9625), [Savitha](https://github.com/savitha0602) and [Sidharth](https://github.com/Sidharth2905) from team **Saas**
@@ -13,8 +13,13 @@ pip install --user requirements.txt
 ## Collaboration
 Contribution guidelines are given [here](./CONTRIBUTING.md)
 
+## Dataset Preparation Instructions
 
-## Dataset Preparation INSTRUCTIONS
+To work on the dataset, we have used the official repositories provided for COCO Dataset.
+The first repository that is utilized as a submodule is [cocoapi](https://github.com/cocodataset/cocoapi/tree/636becdc73d54283b3aac6d4ec363cffbb6f9b20). This provides a wrapper to load captions that correspond to images.
+The second repository that is utilized as a submodule is [coco-caption](https://github.com/Anirudh-Swaminathan/coco-caption/tree/c5ffd796caca13de757967317ba364d7d91e3a2f). This provides a wrapper to evaluate our resultant captions by providing implementations of BLEU scores.
+#### NOTE:
+This repository is my fork of the original repository [here](https://github.com/tylin/coco-caption). This has codes reworked in Python3 from the ones originally provided in Python2.
 
 ### Dataset Annotations (Captions) Download
 These are the steps to set up the dataset:-
