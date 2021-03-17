@@ -1,9 +1,9 @@
 ## Image Captioning - Team SaaS
-A repository to collaborate on the Course Project for ECE285 course "Machine Learning for Image Processing" taken at UCSD in the Fall Quarter of 2019
+A repository to collaborate on the Course Project for ECE285 course "Machine Learning for Image Processing" taken at UCSD in the Fall Quarter of 2019.
 
-The project is a collaborative project that was worked on by [Anirudh](https://github.com/Anirudh-Swaminathan), [Aparna](https://github.com/aparna9625), [Savitha](https://github.com/savitha0602) and [Sidharth](https://github.com/Sidharth2905) from team **Saas**
+The project is a collaborative project that was worked on by [Anirudh](https://github.com/Anirudh-Swaminathan), [Aparna](https://github.com/aparna9625), [Savitha](https://github.com/savitha0602) and [Sidharth](https://github.com/Sidharth2905) from team **Saas**.
 
-The final report for our work is [here](./final_report.pdf)
+The final report for our work is [here](./final_report.pdf).
 
 ## Software Requirements
 To work on the project, please use Python 3.
